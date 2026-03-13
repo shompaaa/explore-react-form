@@ -1,11 +1,18 @@
 import React from 'react';
 
 const FormAction = () => {
+
+    const handleFormAction = (formData) =>{
+        console.log(formData.get('name'))
+        console.log(formData.get('email'))
+    }
+
     return (
         <div>
-            <form action="">
-                <input type="text" name="" id="" placeholder='Enter your name'/>
-                <input type="email" name="" id="" placeholder='Enter your email' />
+            <form action={handleFormAction}>
+                <input type="text" name="name" id="" placeholder='Enter your name'/> <br />
+                <input type="email" name="email" id="" placeholder='Enter your email' /><br />
+                <input type="submit" value="Submit" />
             </form>
         </div>
     );
