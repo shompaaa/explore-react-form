@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 const ControlledField = () => {
 
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
   
@@ -9,6 +11,8 @@ const ControlledField = () => {
         e.preventDefault()
         console.log(e.target.email.value)
         console.log(e.target.password.value)
+
+        console.log(name,email, password)
 
         //Give the error message after hit the submit button
 
@@ -36,11 +40,20 @@ const ControlledField = () => {
         }
     }
 
+    const handleEmailOnChange = e =>{
+        setEmail(e.target.value)
+    }
+
+    const handleNameOnChange = e =>{
+        setName(e.target.value)
+    }
+
 
     return (
         <div>
             <form action="" onSubmit={handleSubmit}>
-                <input type="email" name="email" id="" placeholder='email' required /><br />
+                <input type="text" onChange={handleNameOnChange} defaultValue={name} name="name" id="" placeholder='name here'/><br />
+                <input type="email" onChange={handleEmailOnChange} defaultValue={email} name="email" id="" placeholder='email' required /><br />
                 <input type="password" name="password" onChange={handlePasswordOnChange} defaultValue={password} id="" placeholder='password' required /><br />
                 <input type="submit" value="Submit" />
             </form>
